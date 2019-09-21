@@ -1,0 +1,7 @@
+#recipe Blog
+#t CleanBlog
+
+Settings[Keys.Host] = "sklyarenko.net";
+Settings[BlogKeys.Title] = "Home";
+Settings[BlogKeys.Description] = "The technical blog of Yan Sklyarenko";
+Settings[BlogKeys.Intro] = "A memory dump of random thoughts and interesting facts about different things in the world of IT.";
