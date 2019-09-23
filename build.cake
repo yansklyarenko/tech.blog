@@ -61,6 +61,11 @@ Task("Netlify")
         {
             Information(file);
         }
+        client.ResponseHandler = x =>
+        {
+            Information("The response content:");
+            Information(x.Content);
+        };
 
         client.UpdateSite($"yansklyarenko.netlify.com", outputFolder).SendAsync().Wait();
     });
