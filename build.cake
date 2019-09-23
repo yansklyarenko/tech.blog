@@ -45,6 +45,7 @@ Task("Netlify")
     .Does(() =>
     {
         var netlifyToken = EnvironmentVariable("NETLIFY_TOKEN");
+        Information("The token is " + netlifyToken);
         if(string.IsNullOrEmpty(netlifyToken))
         {
             throw new Exception("Could not get Netlify token environment variable");
