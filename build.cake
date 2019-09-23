@@ -54,6 +54,14 @@ Task("Netlify")
         var client = new NetlifyClient(netlifyToken);
         var outputFolder = MakeAbsolute(Directory("./output")).FullPath;
         Information("The site output is in " + outputFolder);
+        // Adding some debug info temporarily
+
+        var outputFiles = System.IO.Directory.EnumerateFiles(outputFolder, "*.*", SearchOption.AllDirectories);
+        foreach (var file in outputFiles)
+        {
+            Information(file);
+        }
+
         client.UpdateSite($"yansklyarenko.netlify.com", outputFolder).SendAsync().Wait();
     });
 
