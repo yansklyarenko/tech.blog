@@ -56,15 +56,15 @@ Task("Netlify")
         Information("The site output is in " + outputFolder);
         // Adding some debug info temporarily
 
-        var outputFiles = System.IO.Directory.EnumerateFiles(outputFolder, "*.*", SearchOption.AllDirectories);
+        /*var outputFiles = System.IO.Directory.EnumerateFiles(outputFolder, "*.*", SearchOption.AllDirectories);
         foreach (var file in outputFiles)
         {
             Information(file);
-        }
+        }*/
         client.ResponseHandler = x =>
         {
-            Information("The response content:");
-            Information(x.Content);
+            Information("The response:");
+            Information(x);
         };
 
         client.UpdateSite($"yansklyarenko.netlify.com", outputFolder).SendAsync().Wait();
