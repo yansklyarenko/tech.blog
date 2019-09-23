@@ -4,6 +4,8 @@
 #tool nuget:?package=Wyam
 #addin nuget:?package=Cake.Wyam
 #addin "NetlifySharp"
+#addin "Newtonsoft.Json"
+#addin "System.Runtime.Serialization.Formatters"
 
 using NetlifySharp;
 
