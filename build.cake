@@ -52,6 +52,10 @@ Task("Netlify")
 
         Information("Deploying output to Netlify");
         var client = new NetlifyClient(netlifyToken);
+        client.ResponseHandler = x =>
+        {
+            Information(x);
+        };
         client.UpdateSite($"yansklyarenko.netlify.com", MakeAbsolute(Directory("./output")).FullPath).SendAsync().Wait();
     });
 
