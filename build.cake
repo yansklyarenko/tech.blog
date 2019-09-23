@@ -54,7 +54,10 @@ Task("Netlify")
         var client = new NetlifyClient(netlifyToken);
         client.ResponseHandler = x =>
         {
-            Information(x);
+            if (x.Headers.Connection != null && x.Headers.Connection.Contains("close"))
+            {
+                throw new Exception("Most likely invalid Netlify token was supplied");
+            }
         };
         client.UpdateSite($"yansklyarenko.netlify.com", MakeAbsolute(Directory("./output")).FullPath).SendAsync().Wait();
     });
