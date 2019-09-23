@@ -1,11 +1,9 @@
 // The following environment variables need to be set for Netlify target:
 // NETLIFY_TOKEN
 
-#tool nuget:?package=Wyam
-#addin nuget:?package=Cake.Wyam
+#tool nuget:?package=Wyam&version=2.2.4
+#addin nuget:?package=Cake.Wyam&version=2.2.4
 #addin "NetlifySharp"
-#addin "Newtonsoft.Json"
-#addin "System.Runtime.Serialization.Formatters"
 
 using NetlifySharp;
 
