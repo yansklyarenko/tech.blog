@@ -55,15 +55,20 @@ Task("Netlify")
         var outputFolder = MakeAbsolute(Directory("./output")).FullPath;
         Information("The site output is in " + outputFolder);
         // Adding some debug info temporarily
-
-        /*var outputFiles = System.IO.Directory.EnumerateFiles(outputFolder, "*.*", SearchOption.AllDirectories);
+        Information("======================== Files in the /output folder");
+        var outputFiles = System.IO.Directory.EnumerateFiles(outputFolder, "*.*", SearchOption.AllDirectories);
         foreach (var file in outputFiles)
         {
             Information(file);
-        }*/
+        }
+        client.RequestHandler = a =>
+        {
+            Information("======================== The request:");
+            Information(a);
+        };
         client.ResponseHandler = x =>
         {
-            Information("The response:");
+            Information("======================== The response:");
             Information(x);
         };
 
